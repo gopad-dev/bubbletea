@@ -226,7 +226,7 @@ func NewProgram(model Model, opts ...ProgramOption) *Program {
 		p.ctx = newContext(context.Background())
 	}
 	// Initialize context and teardown channel.
-	p.ctx.Context, p.cancel = context.WithCancel(p.ctx)
+	p.ctx.Context, p.cancel = context.WithCancel(p.ctx.Context)
 
 	// if no output was set, set it to stdout
 	if p.output == nil {
